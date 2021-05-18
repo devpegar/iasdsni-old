@@ -26,7 +26,7 @@
 }
 
 .logo img {
-    max-width: 400px;
+    max-width: 300px;
 }
 /* iconos redes sociales */
 .social-media {
@@ -146,11 +146,25 @@
     text-align: center;
     /* border: solid 1px red; */
     padding: 10px;
+    margin: 0 10px;
     border-radius: 50px;
+    position: relative;
 }
 
-.main-menu li:hover {
-    background: #1ab5ad;
+.main-menu li::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #1da1f2;
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    transition: all 0.3s;
+}
+
+.main-menu li:hover::before {
+    width: 80%;
 }
 
 .main-menu li a {
