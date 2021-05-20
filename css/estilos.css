@@ -5,15 +5,12 @@
 .color3 {background: #1ab5ad;}
 .color4 {background: #7de89e;}
 .color5 {background: #f5eb99;}
+.degradado1 {background-image: linear-gradient(to right, #121b25, #12486e);}
+.degradado2 {background-image: linear-gradient(to top, #1ab5ad, #7de89e);}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
+body {
+    background-image: url(../img/fondo.jpg);
 }
-
 .container {
     max-width: 90%;
     margin: auto;
@@ -53,10 +50,15 @@
     width: 160px;
 }
 
+.social-media div a {
+    text-decoration: none;
+}
+
 .social-media div a i {
     display: inline-block;
     height: 42px;
     width: 42px;
+    text-decoration: none;
     text-align: center;
     border-radius: 50px;
     box-sizing: border-box;
@@ -136,6 +138,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
     margin: 0, auto;
     padding: 20px;
     font-family: "Poppins", sans-serif;
@@ -156,7 +159,7 @@
     display: block;
     width: 0;
     height: 3px;
-    background: #1da1f2;
+    background: #12486e;
     position: absolute;
     left: 10%;
     bottom: 0;
@@ -169,5 +172,6 @@
 
 .main-menu li a {
     color: #fff;
+    text-decoration: none;
 }
 
