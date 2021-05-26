@@ -10,6 +10,7 @@
 
 body {
     background-image: url(../img/fondo.jpg);
+    font-family: 'Poppins', sans-serif ;
 }
 .container {
     max-width: 90%;
@@ -29,7 +30,6 @@ body {
 .social-media {
     display: flex;
     justify-content: space-around;
-    font-family: 'Poppins', sans-serif ;
 }
 
 .social-media div {
@@ -173,6 +173,7 @@ body {
 .main-menu li a {
     color: #fff;
     text-decoration: none;
+    text-shadow: 4px 4px 2px rgba(0,0,0,0.4);
 }
 
 /* Carrusel de imagenes */
@@ -182,32 +183,6 @@ body {
     width: 100%;
     margin: 1em auto;
     text-align: center;
-}
-
-.carrusel button {
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    border: none;
-    text-decoration: none;
-    background-color: transparent;
-    color: #000;
-    transition: all 0.3s ease;
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.carrusel button:hover {
-    color:lightslategrey;
-}
-
-.img-btns {
-    position: absolute;
-    width: 100%;
-    top: 45%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .container-img {
@@ -222,9 +197,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s ease;
+    clip-path: circle(0% at 0 50%);
 }
 
 .imagen img {
@@ -234,7 +207,74 @@ body {
 }
 
 .imagen.activa {
-    opacity: 1;
-    visibility: visible;
+    clip-path: circle(150% at 0 50%);
+    transition: 2s;
+    transition-property: clip-path;
 }
 
+.info {
+    position: absolute;
+    top: 20%;
+    left: 20px;
+    width: 35%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.info h2 {
+    color: #fff;
+    padding: 0px 10px;
+    font-size: 2em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
+}
+
+.info p {
+    color: #fff;
+    padding: 0px 10px;
+    font-size: 1em;
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+    font-style: italic;
+}
+
+.info button {
+    background: #1ab5ad;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5);
+}
+
+.info button a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 200;
+
+}
+
+.nav {
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav .btn {
+    background: rgba(255, 255, 255, 0.5);
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav .btn.activa {
+    background: #1ab5ad;
+    box-shadow: rgba(0, 0, 0, 0.5);
+}

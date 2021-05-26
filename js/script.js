@@ -1,42 +1,55 @@
-const $prev = document.querySelector(".img-btns .anterior")
-const $next = document.querySelector(".img-btns .siguiente")
-const $items = document.querySelectorAll(".imagen")
+const imagenes = document.querySelectorAll(".imagen")
+const btns = document.querySelectorAll(".btn")
 
-const nextImage = (items) => {
-    const totalItems = items.length -1
-    let indice
+let imagenActual = 1
 
-    items.forEach((items, i) => {
-        if (items.classList.contains("activa")) {
-            items.classList.remove("activa")
-            indice = i + 1
-            if (indice > totalItems) indice = 0
-        }
+// Navegación manual de las imagenes
+
+const navManual = function(manual) {
+    imagenes.forEach((imagen) => {
+        imagen.classList.remove("activa")
+
+        btns.forEach((btn) => {
+            btn.classList.remove("activa")
+        })
     })
-    items[indice].classList.add("activa")
-}
-const prevImage = (items) => {
-    const totalItems = items.length -1
-    let indice
 
-    items.forEach((items, i) => {
-        if (items.classList.contains("activa")) {
-            items.classList.remove("activa")
-            indice = i - 1
-            if (indice < 0) indice = totalItems
-        }
-    })
-    items[indice].classList.add("activa")
+    imagenes[manual].classList.add("activa")
+    btns[manual].classList.add("activa")
+
+
 }
 
-$next.addEventListener("click", () => {
-    nextImage($items)
+btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        navManual(i)
+        imagenActual = i
+    })
 })
 
-$prev.addEventListener("click", () => {
-    prevImage($items)
-})
+//Navegación automatica de imagenes
+const automatica = function(activarClase) {
+    const activa = document.getElementsByClassName("activa")
+    let i = 1
 
-window.onload = setInterval(() => {
-    nextImage($items)
-}, 5000)
+    const repetir = () => {
+        setTimeout(function(){
+            [...activa].forEach((imagenActiva) => {
+                imagenActiva.classList.remove("activa")
+            })
+            imagenes[i].classList.add("activa")
+            btns[i].classList.add("activa")
+            i++
+
+            if(imagenes.length == i){
+                i = 0
+            }
+            if(i >= imagenes.length){
+                return
+            }
+            repetir()
+        }, 10000)
+    } 
+    repetir()
+}
+automatica()
